@@ -1,0 +1,72 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Testing
+coverage/
+
+# Next.js
+.next/
+out/
+build/
+
+# Production
+dist/
+
+# Misc
+.DS_Store
+*.pem
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
+
+# Local env files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Vercel
+.vercel
+
+# IDE / Editor
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# Python (model conversion tooling, not needed at runtime)
+__pycache__/
+*.pyc
+.venv-tfjs/
+_tfjs_py/
+_saved_model_tmp/
+
+# OS
+Thumbs.db
+
+# Large sample data (exceeds GitHub 100MB file limit / not needed for deploy)
+sample_writers.zip
+sample_writers/
+*.zip
+
+# Codely
+.codely-cli/
+.codely/
+
+# Trae IDE
+.trae/
+
+# TypeScript build info
+tsconfig.tsbuildinfo
+
+# Memory log
+mem-log/
+
+.vercel

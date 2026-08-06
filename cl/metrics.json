@@ -1,0 +1,20 @@
+{
+  "test_accuracy": 0.8,
+  "precision": 0.8448275862068966,
+  "recall": 0.735,
+  "f1_score": 0.786096256684492,
+  "roc_auc": 0.8914361111111111,
+  "similarity_gap": 0.32034667174952725,
+  "n_test_pairs": 1200,
+  "n_train_pairs": 6000,
+  "n_val_pairs": 1200,
+  "n_writers_train": 92,
+  "n_writers_val": 11,
+  "n_writers_test": 12,
+  "epochs_trained": 99,
+  "decision_threshold": 0.48664018511772156,
+  "test_accuracy_at_0.5": 0.795,
+  "seed": 42,
+  "margin": 1.0,
+  "image_size": "112x896"
+}

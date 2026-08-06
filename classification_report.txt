@@ -1,0 +1,8 @@
+                  precision    recall  f1-score   support
+
+Different Writer       0.77      0.86      0.81       600
+     Same Writer       0.84      0.73      0.79       600
+
+        accuracy                           0.80      1200
+       macro avg       0.81      0.80      0.80      1200
+    weighted avg       0.81      0.80      0.80      1200

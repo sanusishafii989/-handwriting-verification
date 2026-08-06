@@ -1,0 +1,31 @@
+HANDWRITING VERIFICATION - EVALUATION REPORT
+=============================================
+Model: Siamese Xception (ImageNet pre-trained) + L1 distance + sigmoid head
+Loss: Binary cross-entropy (primary) / Contrastive loss margin=1.0 (embedding regularizer)
+Image size: 112x896 grayscale (letterboxed, aspect-preserving)
+Seed: 42
+
+Dataset
+-------
+Writers total: 115 | Images total: 436
+Train writers: 92 | Val writers: 11 | Test writers: 12
+Writer-disjoint split verified (no writer appears in >1 split).
+
+Test-Set Results (n=1200 pairs)
+-----------------------------------------
+Accuracy (tuned threshold=0.4866): 0.8000
+Accuracy (0.50 threshold, reference): 0.7950
+Precision: 0.8448
+Recall   : 0.7350
+F1-score : 0.7861
+ROC-AUC  : 0.8914
+Similarity Gap (same - different): 0.3203
+
+                  precision    recall  f1-score   support
+
+Different Writer       0.77      0.86      0.81       600
+     Same Writer       0.84      0.73      0.79       600
+
+        accuracy                           0.80      1200
+       macro avg       0.81      0.80      0.80      1200
+    weighted avg       0.81      0.80      0.80      1200
