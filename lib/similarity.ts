@@ -38,12 +38,16 @@ export async function compareImages(
     tensorB = preprocessImage(imgDataB);
 
     const predictionOut = tf.tidy(() => {
-      // GraphModel.execute returns NamedTensor(s)
-      const result = model.execute([tensorA!, tensorB!]);
-      return result;
+      // GraphModel from SavedModel expects named inputs
+      // Use predict which handles input mapping automatically
+      const result = model.predict({
+        'input_a:0': tensorA!,
+        'input_b:0': tensorB!,
+      });
+      return Array.isArray(result) ? result[0] : result;
     });
 
-    prediction = Array.isArray(predictionOut) ? predictionOut[0] : predictionOut;
+    prediction = predictionOut as tf.Tensor;
     const data = await prediction.data();
     score = Number(data[0]);
     if (!Number.isFinite(score)) score = 0;

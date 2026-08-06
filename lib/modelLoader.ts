@@ -26,9 +26,19 @@ export async function loadModel(forceReload = false): Promise<tf.GraphModel> {
     try {
       await tf.ready();
 
-      const loaded = await tf.loadGraphModel(MODEL_PATH, {
+      // Use absolute URL for compatibility with deployed environments
+      const baseUrl = typeof window !== 'undefined' ? window.location.origin : '';
+      const modelUrl = `${baseUrl}${MODEL_PATH}`;
+
+      console.log('[ModelLoader] Loading GraphModel from:', modelUrl);
+
+      const loaded = await tf.loadGraphModel(modelUrl, {
         requestInit: { cache: 'no-cache' },
       });
+
+      console.log('[ModelLoader] Model loaded successfully');
+      console.log('[ModelLoader] Model inputs:', loaded.inputs);
+      console.log('[ModelLoader] Model outputs:', loaded.outputs);
 
       model = loaded;
       loadError = null;
@@ -39,6 +49,7 @@ export async function loadModel(forceReload = false): Promise<tf.GraphModel> {
           ? err.message
           : 'Unknown error loading model. Ensure model.json and .bin files exist in /public/model/';
 
+      console.error('[ModelLoader] Failed to load model:', message);
       loadError = message;
       model = null;
       throw new Error(message);
